@@ -6,7 +6,7 @@ namespace API.Data;
 
 public class DbInitializer
 {
-    public void InitDb(WebApplication app)
+    public static void InitDb(WebApplication app)
     {
         using var scope = app.Services.CreateScope();
 
@@ -25,21 +25,21 @@ public class DbInitializer
         var products = new List<Product>
         {
                 new() {
-                    Name = "Angular Speedster Board 2000",
+                    Name = "Speed X Speedster Board 2000",
                     Description =
                         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                     Price = 20000,
                     PictureUrl = "/images/products/sb-ang1.png",
-                    Brand = "Angular",
+                    Brand = "Speed X",
                     Type = "Boards",
                     QuantityInStock = 100
                 },
                 new() {
-                    Name = "Green Angular Board 3000",
+                    Name = "Green Speed X Board 3000",
                     Description = "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
                     Price = 15000,
                     PictureUrl = "/images/products/sb-ang2.png",
-                    Brand = "Angular",
+                    Brand = "Speed X",
                     Type = "Boards",
                     QuantityInStock = 100
                 },
@@ -49,7 +49,7 @@ public class DbInitializer
                         "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
                     Price = 18000,
                     PictureUrl = "/images/products/sb-core1.png",
-                    Brand = "NetCore",
+                    Brand = "Spectrum",
                     Type = "Boards",
                     QuantityInStock = 100
                 },
@@ -59,7 +59,7 @@ public class DbInitializer
                         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
                     Price = 30000,
                     PictureUrl = "/images/products/sb-core2.png",
-                    Brand = "NetCore",
+                    Brand = "Spectrum",
                     Type = "Boards",
                     QuantityInStock = 100
                 },
@@ -74,12 +74,12 @@ public class DbInitializer
                     QuantityInStock = 100
                 },
                 new() {
-                    Name = "Typescript Entry Board",
+                    Name = "Prelude Entry Board",
                     Description =
                         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                     Price = 12000,
                     PictureUrl = "/images/products/sb-ts1.png",
-                    Brand = "TypeScript",
+                    Brand = "Prelude",
                     Type = "Boards",
                     QuantityInStock = 100
                 },
@@ -89,7 +89,7 @@ public class DbInitializer
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                     Price = 1000,
                     PictureUrl = "/images/products/hat-core1.png",
-                    Brand = "NetCore",
+                    Brand = "Spectrum",
                     Type = "Hats",
                     QuantityInStock = 100
                 },
@@ -119,7 +119,7 @@ public class DbInitializer
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                     Price = 1800,
                     PictureUrl = "/images/products/glove-code1.png",
-                    Brand = "VS Code",
+                    Brand = "Code Zero",
                     Type = "Gloves",
                     QuantityInStock = 100
                 },
@@ -129,7 +129,7 @@ public class DbInitializer
                         "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                     Price = 1500,
                     PictureUrl = "/images/products/glove-code2.png",
-                    Brand = "VS Code",
+                    Brand = "Code Zero",
                     Type = "Gloves",
                     QuantityInStock = 100
                 },
@@ -154,12 +154,12 @@ public class DbInitializer
                     QuantityInStock = 100
                 },
                 new() {
-                    Name = "Redis Red Boots",
+                    Name = "Nike Red Boots",
                     Description =
                         "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
                     Price = 25000,
                     PictureUrl = "/images/products/boot-redis1.png",
-                    Brand = "Redis",
+                    Brand = "Nike",
                     Type = "Boots",
                     QuantityInStock = 100
                 },
@@ -169,7 +169,7 @@ public class DbInitializer
                         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                     Price = 18999,
                     PictureUrl = "/images/products/boot-core2.png",
-                    Brand = "NetCore",
+                    Brand = "Spectrum",
                     Type = "Boots",
                     QuantityInStock = 100
                 },
@@ -179,26 +179,26 @@ public class DbInitializer
                         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
                     Price = 19999,
                     PictureUrl = "/images/products/boot-core1.png",
-                    Brand = "NetCore",
+                    Brand = "Spectrum",
                     Type = "Boots",
                     QuantityInStock = 100
                 },
                 new() {
-                    Name = "Angular Purple Boots",
+                    Name = "Speed X Purple Boots",
                     Description = "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
                     Price = 15000,
                     PictureUrl = "/images/products/boot-ang2.png",
-                    Brand = "Angular",
+                    Brand = "Speed X",
                     Type = "Boots",
                     QuantityInStock = 100
                 },
                 new() {
-                    Name = "Angular Blue Boots",
+                    Name = "Speed X Blue Boots",
                     Description =
                         "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
                     Price = 18000,
                     PictureUrl = "/images/products/boot-ang1.png",
-                    Brand = "Angular",
+                    Brand = "Speed X",
                     Type = "Boots",
                     QuantityInStock = 100
                 },
