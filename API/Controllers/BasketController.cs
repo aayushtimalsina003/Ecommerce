@@ -51,7 +51,7 @@ public class BasketController(StoreContext context) : BaseApiController
         // save changes
         var result = await context.SaveChangesAsync() > 0;
 
-        if (result) return Ok("Item has been removed sucessfully or quantity has been updated");
+        if (result) return NoContent();
 
         return BadRequest("Problem removing items from the basket");
     }

@@ -9,6 +9,7 @@ import { router } from "../routes/Routes";
 
 const customBaseQuery = fetchBaseQuery({
   baseUrl: "https://localhost:5001/api",
+  credentials: "include",
 });
 
 type ErrorResponse = string | { title: string } | { errors: string[] };
@@ -24,6 +25,7 @@ export const baseQueryWithErrorHandling = async (
   await sleep();
   const result = await customBaseQuery(args, api, extraOptions);
   api.dispatch(stopLoading());
+
   if (result.error) {
     console.log(result.error);
 
