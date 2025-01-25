@@ -45,10 +45,10 @@ export default function BasketItem({ item }: Props) {
 
           <Box display="flex" alignItems="center" gap={3}>
             <Typography sx={{ fontSize: "1.1,rem" }}>
-              ${currencyFormat(item.price)} X {item.quantity}
+              {currencyFormat(item.price)} X {item.quantity}
             </Typography>
             <Typography sx={{ fontSize: "1.1,rem" }} color="primary">
-              ${currencyFormat(item.price * item.quantity)}
+              {currencyFormat(item.price * item.quantity)}
             </Typography>
           </Box>
 
