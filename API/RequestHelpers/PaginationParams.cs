@@ -1,7 +1,3 @@
-
-
-using System;
-
 namespace API.RequestHelpers;
 
 public class PaginationParams
