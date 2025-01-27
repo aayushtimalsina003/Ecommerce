@@ -7,6 +7,7 @@ import { catelogApi } from "../../features/catelog/catelogApi";
 import { uiSlice } from "../layout/uiSlice";
 import { errorApi } from "../../features/about/errorApi";
 import { basketApi } from "../../features/basket/basketApi";
+import { catelogSlice } from "../../features/catelog/catelogSlice";
 
 export default function configureTheStore() {
   return legacy_createStore(counterReducer);
@@ -19,6 +20,7 @@ export const store = configureStore({
     [basketApi.reducerPath]: basketApi.reducer,
     counter: counterSlice.reducer,
     ui: uiSlice.reducer,
+    catelog: catelogSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
