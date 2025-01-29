@@ -7,9 +7,32 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { loginSchema, LoginSchema } from "../../lib/schemas/loginSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useLazyUserInfoQuery, useLoginMutation } from "./accountApi";
 
 export default function LoginForm() {
+  const [login, { isLoading }] = useLoginMutation();
+  const [fetchUserInfo] = useLazyUserInfoQuery();
+  const location = useLocation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginSchema>({
+    mode: "onTouched",
+    resolver: zodResolver(loginSchema),
+  });
+  const navigate = useNavigate();
+
+  const onSubmit = async (data: LoginSchema) => {
+    await login(data);
+    await fetchUserInfo();
+    navigate(location.state?.form || "/catelog");
+  };
+
   return (
     <Container component={Paper} maxWidth="sm" sx={{ borderRadius: 3 }}>
       <Box display="flex" flexDirection="column" alignItems="center" mt={8}>
@@ -17,15 +40,32 @@ export default function LoginForm() {
         <Typography variant="h5">Sign In</Typography>
         <Box
           component="form"
+          onSubmit={handleSubmit(onSubmit)}
           width="100%"
           display="flex"
           flexDirection="column"
           gap={3}
           marginY={3}
         >
-          <TextField fullWidth label="Email" autoFocus />
-          <TextField fullWidth label="password" type="password" />
-          <Button variant="contained">Sign In</Button>
+          <TextField
+            fullWidth
+            label="Email"
+            autoFocus
+            {...register("email")}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
+          <TextField
+            fullWidth
+            label="password"
+            type="password"
+            {...register("password")}
+            error={!!errors.password}
+            helperText={errors.password?.message}
+          />
+          <Button disabled={isLoading} variant="contained" type="submit">
+            Sign In
+          </Button>
           <Typography sx={{ textAlign: "center" }}>
             Don't have an account?
             <Typography

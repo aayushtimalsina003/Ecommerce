@@ -85,7 +85,7 @@ public class AccountController(SignInManager<User> signInManager) : BaseApiContr
     public async Task<ActionResult<Address>> GetSavedAddress()
     {
         var address = await signInManager.UserManager.Users
-            .Where(x => x.UserName == User.Identity.Name)
+            .Where(x => x.UserName == User.Identity!.Name)
             .Select(x => x.Address)
             .FirstOrDefaultAsync();
 

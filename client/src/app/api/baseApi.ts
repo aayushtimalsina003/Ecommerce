@@ -39,23 +39,31 @@ export const baseQueryWithErrorHandling = async (
     switch (originalStatus) {
       case 400:
         if (typeof responseData === "string") toast.error(responseData);
-        else if ("errors" in responseData) {
+        else if (responseData && "errors" in responseData) {
           throw Object.values(responseData.errors).flat().join(", ");
         } else toast.error(responseData.title);
         break;
 
       case 401:
-        if (typeof responseData === "object" && "title" in responseData)
+        if (
+          responseData &&
+          typeof responseData === "object" &&
+          "title" in responseData
+        )
           toast.error(responseData.title);
         break;
 
       case 404:
-        if (typeof responseData === "object" && "title" in responseData)
+        if (
+          responseData &&
+          typeof responseData === "object" &&
+          "title" in responseData
+        )
           router.navigate("/not-found");
         break;
 
       case 500:
-        if (typeof responseData === "object")
+        if (responseData && typeof responseData === "object")
           router.navigate("/server-error", { state: { error: responseData } });
         break;
       default:
