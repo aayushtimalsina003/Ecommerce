@@ -155,3 +155,7 @@ C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\Microsoft.Extensions.Loggi
 C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\Stripe.net.dll
+C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\aayus\Desktop\Ecommerce\API\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll

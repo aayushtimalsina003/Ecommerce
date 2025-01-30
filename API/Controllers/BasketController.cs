@@ -45,7 +45,7 @@ public class BasketController(StoreContext context) : BaseApiController
         // get basket
         var basket = await RetriveBasket();
 
-        if (basket == null) return BadRequest("Basket is emppty nothing found");
+        if (basket == null) return BadRequest("Basket is empty nothing found");
         // remove the item or reduce its quantity
         basket.RemoveItem(productId, quantity);
         // save changes
