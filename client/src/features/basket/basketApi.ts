@@ -2,6 +2,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQueryWithErrorHandling } from "../../app/api/baseApi";
 import { Product } from "../../app/models/product";
 import { Basket, Item } from "../../app/models/basket";
+import Cookies from 'js-cookie';
 
 function isBasketItem(product: Product | Item): product is Item {
   return (product as Item).quantity !== undefined;
@@ -100,11 +101,20 @@ export const basketApi = createApi({
         } catch (error) {
           console.error("Failed to remove basket item:", error);
           patchResult.undo();
-          // Optional: dispatch error notification
-          // dispatch(showErrorNotification('Failed to remove item from basket'));
         }
       },
       invalidatesTags: ["Basket"],
+    }),
+    clearBasket: builder.mutation<void, void>({
+      queryFn: () => ({ data: undefined }),
+      onQueryStarted: async (_, { dispatch }) => {
+        dispatch(
+          basketApi.util.updateQueryData("fetchBasket", undefined, (draft) => {
+            draft.items = [];
+          })
+        );
+        Cookies.remove("basketId");
+      },
     }),
   }),
 });
@@ -113,4 +123,5 @@ export const {
   useFetchBasketQuery,
   useAddBasketItemMutation,
   useRemoveBasketItemMutation,
+  useClearBasketMutation,
 } = basketApi;
