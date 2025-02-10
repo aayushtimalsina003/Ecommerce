@@ -114,6 +114,7 @@ public class PaymentsController(PaymentsService paymentsService, StoreContext co
         await context.SaveChangesAsync();
 
     }
+    
 
     private Event ConstructStripeEvent(string json)
     {
